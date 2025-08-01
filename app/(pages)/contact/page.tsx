@@ -7,6 +7,8 @@ import {
 import Card from "@/components/ui/card";
 import { socialConfigs } from "@/config/social";
 import { Metadata } from "next";
+import NewsletterForm from '../../../components/home/optin-form';
+
 
 export const metadata: Metadata = {
   title: "Pantaleone.net | Contact Us",
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
 
 export default async function ContactPage() {
   const title = "Contact";
-  const description = "Please feel free to reach out";
+  const description = "Let's Connect!";
   const imageUrl = "favicons/android-chrome-192x192.png";
   const imageAlt = "Avatar";
   const initials = "MP";
@@ -30,6 +32,7 @@ export default async function ContactPage() {
             <h1 className="mt-4 text-2xl font-bold text-gray-800 dark:text-zinc-400">
               {title}
             </h1>
+            <NewsletterForm />
             <p className="mt-2 text-base text-gray-600 dark:text-zinc-400">
               {description}
             </p>

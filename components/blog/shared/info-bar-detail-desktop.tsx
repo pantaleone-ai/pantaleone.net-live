@@ -38,11 +38,11 @@ const InfoBarDetailDesktop: FC<Props> = ({
         icon={<FolderIcon size={20} className="h-5 w-5" aria-hidden="true" />}
         text={category}
       />
-      <Separator orientation="vertical" />
+      {/* <Separator orientation="vertical" />
       <InfoItem
         icon={<CalendarIcon size={20} className="h-5 w-5" aria-hidden="true" />}
         text={format(parseISO(date), "MMM dd, yyyy")}
-      />
+      /> */}
       <Separator orientation="vertical" />
       <InfoItem
         icon={<ClockIcon size={20} className="h-5 w-5" aria-hidden="true" />}

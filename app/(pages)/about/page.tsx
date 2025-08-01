@@ -7,6 +7,8 @@ import Image from "next/image";
 import SocialAccountButton from "@/components/contact/social-account-button";
 import { socialConfigs } from "@/config/social";
 import { Fragment } from "react";
+import NewsletterForm from '../../../components/home/optin-form';
+
 
 export const metadata: Metadata = {
   title: "Pantaleone.net | About Us",
@@ -39,7 +41,8 @@ export default async function AboutPage() {
             <MDXRemote source={content} components={mdxComponents} />
             
           </article>
-          <article id="contact" className="mt-10 grid grid-cols-1">
+          <NewsletterForm />
+          <article id="contact" className="mt-6 grid grid-cols-1">
           <h1 className="text-2xl font-semibold tracking-tight text-gray-800 dark:text-white/90">
               Give us a shout
             </h1>

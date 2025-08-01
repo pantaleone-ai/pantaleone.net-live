@@ -20,10 +20,10 @@ const InfoBarTop: FC<Props> = ({ date, readTime, className }) => {
         className,
       )}
     >
-      <InfoItem
+     {/* <InfoItem
         icon={<CalendarIcon size={20} className="h-5 w-5" aria-hidden="true" />}
-        text={format(parseISO(date), "yyyy-mm-dd")}
-      />
+        text={format(parseISO(date), "MMM dd, yyyy")}
+      /> */}
       <Separator orientation="vertical" />
       <InfoItem
         icon={<ClockIcon size={20} className="h-4 w-4" aria-hidden="true" />}

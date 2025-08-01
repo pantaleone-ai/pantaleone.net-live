@@ -62,6 +62,10 @@
   }
 }
 
+code {
+  white-space : pre-wrap !important;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -71,6 +75,9 @@
   }
   h1 {
     @apply text-pretty text-lg text-gray-600 dark:text-zinc-400 sm:text-xl/8;
+  }
+  h2 {
+    @apply text-pretty font-medium text-gray-600 dark:text-zinc-400 sm:text-xl/8;
   }
   h4 {
     @apply text-pretty text-lg font-medium text-gray-600 dark:text-zinc-400 sm:text-xl/8;

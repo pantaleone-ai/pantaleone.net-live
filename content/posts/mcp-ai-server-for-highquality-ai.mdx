@@ -1,0 +1,105 @@
+---
+title: "Building an MCP Server with the Model Context Protocol"
+description: "Learn how to build an MCP server to give AI models like Claude and Gemini secure access to external data and tools using the Model Context Protocol (MCP)."
+image: "https://pantaleone-net.s3.us-west-1.amazonaws.com/blog-images/mcp-ai-server1.jpg"
+author: "Matt Pantaleone"
+authorAvatar: "/images/avatar.jpg"
+date: "2025-03-15"
+category: "AI Development"
+tags: [
+  "MCP server",
+  "Model Context Protocol",
+  "AI integration",
+  "Python SDK",
+  "AI tools",
+  "AI Agent MCP Tools"
+]
+seo: [
+  "MCP server",
+  "Custom MCP",
+  "MCP tools",
+  "ai agent MCP",
+  "Model Context Protocol",
+  "AI secure connection",
+  "Python SDK for AI",
+  "AI external tools",
+  "AI data access",
+  "AI server setup",
+  "Claude integration",
+  "AI development",
+  "secure AI systems"
+]
+---
+
+# Building an MCP Server with the Model Context Protocol
+
+AI models like Claude or Gemini are powerful, but they are typically isolated from external data and systems. An **MCP server**, which implements the **Model Context Protocol**, provides a secure bridge for an AI to interact with the outside world. This allows an AI agent to perform tasks like reading files, querying databases, or executing actions via APIs. This guide explains what an MCP server is and how to build one.
+
+## What is an MCP Server?
+An MCP server is based on the **Model Context Protocol (MCP)**, an open standard developed by Anthropic to securely connect AI models to external systems. It acts as a middleman between the AI (the client) and the tools or data it needs to access. This allows developers to extend an AI's capabilities in a controlled and secure manner.
+
+---
+
+# Key Aspects of MCP Servers
+
+## 1. Core Functionality: Resources and Tools
+MCP provides two distinct ways for an AI to interact with the world:
+
+- **Resources**: These are for read-only data retrieval, such as listing files or reading a document. They allow the AI to perceive information without changing it.
+- **Tools**: These are for performing actions that have side effects, like writing a file or calling an API. They give the AI the ability to act.
+
+This separation allows for precise control over an AI agent's capabilities.
+
+## 2. Security-First Design
+Security is a core principle of the MCP standard:
+
+- **Path Restrictions**: Access can be restricted to specific directories to prevent unauthorized file operations.
+- **Secure Handshake**: The AI and server negotiate allowed capabilities at the beginning of a session, ensuring no unexpected actions occur.
+- **Authorization**: The protocol is designed to support user consent for sensitive operations.
+
+This focus on security makes MCP a reliable choice for building powerful AI agents.
+
+## 3. Simple Setup with the Python SDK
+The official MCP Python SDK simplifies the process of creating a server. You can install it via pip and use simple decorators like @mcp.resource and @mcp.tool to define your AI's capabilities. This makes it accessible for developers to start building right away.
+
+## 4. Example: A File System Server
+Here is a code example for a basic MCP server that allows an AI to list, read, and write files within a sandboxed directory (/home/user/documents).
+
+```python
+from mcp.server.fastmcp import FastMCP
+import os
+
+# Define the sandboxed base directory
+BASE_PATH = "/home/user/documents"
+mcp = FastMCP("FileSystemServer")
+
+# A resource to list files in a directory
+@mcp.resource("file://{path}/")
+def list_files(path: str) -> list[str]:
+    full_path = os.path.join(BASE_PATH, path)
+    if not full_path.startswith(BASE_PATH):
+        raise ValueError("Path not allowed")
+    return [f for f in os.listdir(full_path) if os.path.isfile(os.path.join(full_path, f))]
+
+# A resource to read the content of a file
+@mcp.resource("file://{path}")
+def read_file(path: str) -> str:
+    full_path = os.path.join(BASE_PATH, path)
+    if not full_path.startswith(BASE_PATH):
+        raise ValueError("Path not allowed")
+    with open(full_path, "r") as f:
+        return f.read()
+
+# A tool to write content to a file
+@mcp.tool()
+def write_file(path: str, content: str) -> None:
+    full_path = os.path.join(BASE_PATH, path)
+    if not full_path.startswith(BASE_PATH):
+        raise ValueError("Path not allowed")
+    with open(full_path, "w") as f:
+        f.write(content)
+```
+By using MCP, developers can build more capable and useful AI agents that can securely interact with real-world data and systems.
+
+![An MCP server acts as a secure bridge for AI.](https://pantaleone-net.s3.us-west-1.amazonaws.com/blog-images/mcp-ai-server2.jpg "MCP AI Server")
+

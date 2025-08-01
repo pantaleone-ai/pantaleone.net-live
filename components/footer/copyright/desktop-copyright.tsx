@@ -16,7 +16,8 @@ const DesktopCopyright = () => {
         </a>
       </div> */}
       <span className="text-center text-sm leading-5 text-gray-600 dark:text-zinc-400">
-        © {new Date().getFullYear()} Pantaleone.net. All rights reserved.
+        © {new Date().getFullYear()} Pantaleone.net. All rights reserved.    
+
       </span>
       <div className="flex flex-1 justify-end">
         <a
@@ -27,6 +28,24 @@ const DesktopCopyright = () => {
           RSS
         </a>
       </div>
+      <div className="flex flex-1 justify-start text-center text-sm leading-5 text-gray-600 dark:text-zinc-400 pl-6">
+
+<a
+    href={getUrl("/privacy")}
+    className="text-md dark:text-brand-400 inline-flex items-center gap-1.5 dark:text-gray-400 hover:text-gray-200 dark:hover:text-gray-200"
+  >
+  
+  Privacy Policy
+  </a>
+
+  <a
+    href={getUrl("/terms")}
+    className="text-md dark:text-brand-400 inline-flex items-center gap-1.5 dark:text-gray-400 hover:text-gray-200 dark:hover:text-gray-200 pl-4"
+  >
+    Terms of Use
+    </a>
+    </div>
+
     </div>
   );
 };

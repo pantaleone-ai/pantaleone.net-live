@@ -10,7 +10,7 @@ import Title from "./title";
 const components = {
   p: (props: React.HTMLProps<HTMLParagraphElement>) => (
     <p
-      className="my-2 text-pretty text-lg/7 text-gray-600 dark:text-zinc-400"
+      className="my-2 text-pretty text-lg/7 text-gray-600 dark:text-zinc-200/90"
       {...props}
     />
   ),

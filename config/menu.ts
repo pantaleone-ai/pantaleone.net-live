@@ -37,12 +37,12 @@ const menuConfig: MenuType[] = [
   
   },
 
-  {
-    id: 4,
-    title: "Contact",
-    slug: "/contact",
-    icon: ContactIcon,
-  },
+  // {
+  //   id: 4,
+  //   title: "Contact",
+  //   slug: "/contact",
+  //   icon: ContactIcon,
+  // },
 ];
 
 export default menuConfig;

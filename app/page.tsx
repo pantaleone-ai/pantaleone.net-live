@@ -1,5 +1,6 @@
 import Profile from "@/components/home/main";
 import ProjectItem from "@/components/project/main";
+import Intro from "@/components/home/intro";
 import { getAllProjectsFilteredByOrder } from "@/lib/mdx";
 import { ProjectType } from "@/types";
 import { Metadata } from "next";
@@ -17,6 +18,7 @@ export default async function HomePage() {
   return (
     <Fragment>
       <Profile />
+        <Intro className="mb-6" />
        {/* <NewsletterForm /> */}
       <section id="selected-projects" className="relative mb-10 mt-10">
         {projects.map((project, index) => (

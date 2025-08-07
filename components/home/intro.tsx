@@ -20,7 +20,7 @@ const Intro = ({ className }: Props) => {
             <div className="text-foreground space-y-6 text-lg leading-8">
               <p className="text-foreground text-md text-center sm:text-left sm:text-lg">
                 We design the autonomous core that replaces your broken workflows, redundant vendors, and manual processes.
-This isn&apos;t just automation; it's the intelligent engine that runs your business.
+This isn&apos;t just automation; it&apos;s the intelligent engine that runs your business.
 
               </p>
 

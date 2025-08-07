@@ -1,7 +1,6 @@
 "use client";
 
 import Card from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";

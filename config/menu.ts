@@ -24,16 +24,23 @@ const menuConfig: MenuType[] = [
   // },
   {
     id: 2,
-    title: "Blog",
-    slug: "/blog",
-    icon: BlogIcon,
+    title: "Shop",
+    slug: "/shop",
+    icon: ProjectIcon,
     // subMenu: categories,
   },
   {
     id: 3,
+    title: "Blog",
+    slug: "/blog",
+    icon: BlogIcon,
+  
+  },
+    {
+    id: 4,
     title: "About",
     slug: "/about",
-    icon: AboutIcon,
+    icon: ContactIcon,
   
   },
 

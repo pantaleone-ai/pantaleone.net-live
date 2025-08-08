@@ -34,6 +34,7 @@ export default function NewsletterForm() {
   };
 
   return (
+    
     <div className="w-full max-w-md mx-auto m-12">
       <div className="bg-card rounded-xl shadow-md p-6 border">
         <h3 className="text-xl font-bold text-foreground mb-4 text-center">
